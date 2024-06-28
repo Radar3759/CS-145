@@ -4,13 +4,14 @@ Date: 6/26/24
 Class: CS&145 Online
 Lab 1: Guessing Game
 Purpose: Have the user guess a number and provide feedback if the entry is corret/too high/too low
+
 Source: 90% of this was copied from my CS&141 project from last quarter that was similar. I got it to work for this assignment (woot!) and adjusted the code to add/remove features specific to this lab. 
 */
 
 import java.util.Scanner;
 import java.security.SecureRandom;
 
-public class Guess {
+public class GuessingGame {
     public static void main(String[] args) throws Exception {
         // allows for input
         Scanner input = new Scanner(System.in);
@@ -27,17 +28,21 @@ public class Guess {
         while (again.toLowerCase().charAt(0) == 'y') {
             // picks a random number between 1 and 100
             int random = 1 + randomNumbers.nextInt(1000);
-            // Prints the random number for testing
-            System.out.printf("The number is " + random +"%n"); 
             // call the game method
             int guesses = playGame(input, random);
-            // print the number of guesses
-            System.out.printf("It took you "+ guesses + " guess(es)!%n");
+            // handle if the user guesses it on the first try. One guess could easily be included in the multiple guess printf, but I wanted to solve it exactly as stated in the assignment.
+                if(guesses == 1) {
+                    System.out.printf("You got it right in 1 guess%n");
+                } else {
+                // print the number of guesses
+                System.out.printf("You got it right in "+ guesses + " guess(es)!%n");
+                }
             // ask if user would like to play again?
             System.out.printf("%nWould you like to play again? Y/N ");
             //input var for y/n
             again = input.next();    
         }
+        System.out.printf("%nGoodbye"); 
         input.close(); //closes the input
     } //end main
 
@@ -65,7 +70,7 @@ public class Guess {
             win = true; // ends the while loop
             count++; //increments the count
             //prints a congrats statement
-            System.out.printf("You guessed the correct number!!%n");
+            System.out.printf("%nYou guessed the correct number!!%n");
         } else if (userNum < random) {
             count++;
             System.out.printf(userNum + " is too low. Guess again.%n");
@@ -74,8 +79,8 @@ public class Guess {
             System.out.printf(userNum + " is too high. Guess again.%n");
             count++;
         } 
-        }  // end while loop       
+        }  // end while loop
         return count;
+        
     }// end playGame     
-
 } //end Guess
