@@ -12,7 +12,7 @@ I got it to work for this assignment (woot!)
 import java.util.Scanner; //import for user input
 import java.security.SecureRandom; //import for random nums
 
-public class GuessingGameCopy {
+public class GuessingGame {
     public static void main(String[] args) throws Exception {
         
         Scanner input = new Scanner(System.in); // allows for input
@@ -107,13 +107,13 @@ public class GuessingGameCopy {
         //prints a title
         System.out.printf("%nGame Stats:"); 
         //prints the least number of guesses in a game
-        System.out.printf("%nYour best game: " + bestGame + " guesses.");
+        System.out.printf("%nYour best game: " + bestGame + " guesses");
         // print the number of games played
         System.out.printf("%nYou played " + totalGames + " game(s)");
          // print total num guesses
         System.out.printf("%nYour total number of guesses: " + totalGuess);
         // print average guesses
-        System.out.printf("%nYour average number of guesses: " + gameAvg);
+        System.out.printf("%nYour average number of guesses: " + gameAvg + "%n");
         
     }  //  ends report
         
