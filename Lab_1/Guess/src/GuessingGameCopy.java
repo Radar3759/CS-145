@@ -30,8 +30,6 @@ public class GuessingGameCopy {
         while (again.toLowerCase().charAt(0) == 'y') {
             // picks a new random number between 1 and 1000
             int random = 1 + randomNumbers.nextInt(1000); 
-            //prints random num for testing
-            System.out.printf("%nthe random num is: " + random); 
             //get the number of guesses for the current game
             int count = playGame(input, random); 
             //change bestGame num if the current guesses are less
