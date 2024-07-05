@@ -11,7 +11,6 @@ public class HeartRates {
     private String fName;
     private String lName;
     private int birthYear;
-    // private int currentYear;
     private int currentYear = java.time.Year.now().getValue();
     private int ageYears;
     private int maxRate;
@@ -29,13 +28,13 @@ public class HeartRates {
         getMaxRate();
         getTargetRateMin();
         getTargetRateMax();
-        
     }
 
     //use a method to set the first name in the object, account.java examples
     public void setFName(String fName) {
         this.fName = fName;
     }
+
     //use a method to get the first name in the object
     public String getFName() {
         return fName;
@@ -45,6 +44,7 @@ public class HeartRates {
     public void setLName(String lName) {
         this.lName = lName;
     }
+
     //use a method to get the last name in the object
     public String getLName() {
         return lName;
@@ -54,6 +54,7 @@ public class HeartRates {
     public void setBirthYear(int birthYear) {
         this.birthYear = birthYear;
     }
+
     //use a method to get the birth year in the object
     public int getBirthYear(){
         return birthYear;
@@ -63,10 +64,12 @@ public class HeartRates {
     public void setCurrentYear(int currentYear) {
         this.currentYear = currentYear;
     }
+
     //use a method to get the current in the object
     public int getCurrentYear(){
         return currentYear;
     }
+
     //use a method to set age
     public void setAgeYears() {
         this.ageYears = currentYear - birthYear;
@@ -85,11 +88,12 @@ public class HeartRates {
     public int getMaxRate() {
         return maxRate;
     }
+
     //calculate target heart rate min
     public void setTargetRateMin() {
         double targetMin = (double) maxRate;
         this.targetRateMin = (targetMin * .50); //use double for percentages
-}
+    }
 
     public double getTargetRateMin() {
         return targetRateMin;
