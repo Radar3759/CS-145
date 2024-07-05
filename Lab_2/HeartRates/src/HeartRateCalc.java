@@ -11,8 +11,6 @@ import java.util.Scanner;
 public class HeartRateCalc {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in); // allows for input
-
-        //Chap 7.2 white book
         //create a HeartRates object and assign it to myHeartRates
         HeartRates myHeartRates = new HeartRates();
             //introduce HeartRate
@@ -35,10 +33,6 @@ public class HeartRateCalc {
             int birthYear = input.nextInt();
             myHeartRates.setBirthYear(birthYear);
 
-            //assigns the current year manually to a var
-            int currentYear = 2024;
-            // this seems redundant, but it's working
-            myHeartRates.setCurrentYear(currentYear);
             myHeartRates.setAgeYears();
             myHeartRates.setMaxRate();
             myHeartRates.setTargetRateMin();
@@ -54,7 +48,4 @@ public class HeartRateCalc {
             System.out.printf("\tMaximum: %.0f%n%n", myHeartRates.getTargetRateMax());
         input.close();
     } //end main
-
 } //end HeartRateCalc
-
-

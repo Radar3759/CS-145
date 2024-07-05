@@ -81,8 +81,8 @@ public class HeartRates {
 
     //calculate max heart rate by age, use a method to set it
     public void setMaxRate() {
-        int age = getAgeYears();
-        this.maxRate = 220 - age;
+        int age = ageYears;
+        maxRate = 220 - age;
     } 
 
     public int getMaxRate() {
@@ -102,7 +102,7 @@ public class HeartRates {
     //calculate target heart rate max
     public void setTargetRateMax() {
         double targetMax = (double) maxRate;
-        this.targetRateMax = (targetMax * .85);
+        targetRateMax = (targetMax * .85);
     }
 
     public double getTargetRateMax() {
@@ -113,4 +113,5 @@ public class HeartRates {
     public HeartRates() {
 
     }
+
 } //end HeartRates
