@@ -1,18 +1,24 @@
-// Fig. 9.10: CommissionEmployee.java
-// CommissionEmployee class uses methods to manipulate its 
-// private instance variables.
-public class CommissionEmployee {
-   private final String firstName;                              
-   private final String lastName;                               
-   private final String socialSecurityNumber;                   
-   private double grossSales; // gross weekly sales       
-   private double commissionRate; // commission percentage
+/* 
+Student: Clarissa Lacefield
+Class: CS145
+Lab: Lab 3 Employee Hierarchy
+*/
 
-   // five-argument constructor
-   public CommissionEmployee(String firstName, String lastName, 
-      String socialSecurityNumber, double grossSales, 
+// private instance variables.
+public class CommissionEmployee extends Employee {             
+   protected  double grossSales; // gross weekly sales       
+   protected  double commissionRate; // commission percentage
+
+   // five-argument constructor, constructors are NOT Inherited
+   public CommissionEmployee(
+      String firstName, 
+      String lastName, 
+      String socialSecurityNumber, 
+      double grossSales, 
       double commissionRate) {
-      // implicit call to Object constructor occurs here
+         
+      //call to superclass
+      super(firstName, lastName, socialSecurityNumber);
 
       // if grossSales is invalid throw exception
       if (grossSales < 0.0) {
@@ -25,27 +31,8 @@ public class CommissionEmployee {
          throw new IllegalArgumentException(
             "Commission rate must be > 0.0 and < 1.0");
       }
-
-      this.firstName = firstName;                                    
-      this.lastName = lastName;                                    
-      this.socialSecurityNumber = socialSecurityNumber;         
       this.grossSales = grossSales;
       this.commissionRate = commissionRate;
-   } 
-
-   // return first name
-   public String getFirstName() {
-      return firstName;
-   }
-
-   // return last name
-   public String getLastName() {
-      return lastName;
-   }
-
-   // return social security number
-   public String getSocialSecurityNumber() {
-      return socialSecurityNumber;
    } 
 
    // set gross sales amount
@@ -54,13 +41,13 @@ public class CommissionEmployee {
          throw new IllegalArgumentException(
             "Gross sales must be >= 0.0");
       }
-
       this.grossSales = grossSales;
    } 
 
    // return gross sales amount
    public double getGrossSales() {
       return grossSales;
+      
    } 
 
    // set commission rate
@@ -86,10 +73,10 @@ public class CommissionEmployee {
    // return String representation of CommissionEmployee object
    @Override 
    public String toString() {
-      return String.format("%s: %s %s%n%s: %s%n%s: %.2f%n%s: %.2f", 
-         "commission employee", getFirstName(), getLastName(), 
-         "social security number", getSocialSecurityNumber(), 
-         "gross sales", getGrossSales(), 
+      return String.format("%n%s: %s %s%n%s: %s%n%s: %.2f%n%s: %.2f%n", 
+         "commission employee", firstName, lastName, 
+         "social security number", socialSecurityNumber, 
+         "gross sales", getGrossSales(),
          "commission rate", getCommissionRate());
    } 
 }

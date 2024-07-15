@@ -1,58 +1,31 @@
-// Exercise 9.3: BasePlusCommissionEmployee.java
-// BasePlusCommissionEmployee using composition.
+/* 
+Student: Clarissa Lacefield
+Class: CS145
+Lab: Lab 3 Employee Hierarchy
+*/
 
-public class BasePlusCommissionEmployee {
-   private CommissionEmployee commissionEmployee; // composition
+//extends CommissionEmployee to get information from that class
+public class BasePlusCommissionEmployee extends CommissionEmployee {
    private double baseSalary; // base salary per week
 
-   // six-argument constructor
-   public BasePlusCommissionEmployee(String firstName, String lastName, 
-      String socialSecurityNumber, double grossSales, double commissionRate, double baseSalary) {
-      if (baseSalary < 0.0) {
-         throw new IllegalArgumentException(
+   // six-argument constructor, constructors are NOT inherited
+   public BasePlusCommissionEmployee(
+      String firstName, 
+      String lastName, 
+      String socialSecurityNumber, 
+      double grossSales, 
+      double commissionRate, 
+      double baseSalary) {
+
+      //use explicit call to superclass per fig 9.8 white book
+      super(firstName, lastName, socialSecurityNumber, grossSales, commissionRate);
+      //if baseSalary is less than 0, throw exception
+         if (baseSalary < 0.0) {
+            throw new IllegalArgumentException(
             "Base salary must be >= 0.0");
       }
-
-      commissionEmployee = 
-         new CommissionEmployee(firstName, lastName, socialSecurityNumber, grossSales, commissionRate);
-
       this.baseSalary = baseSalary;
    }
-
-   // return first name
-   public String getFirstName() {
-      return commissionEmployee.getFirstName();
-   }
-
-   // return last name
-   public String getLastName() {
-      return commissionEmployee.getLastName();
-   } 
-
-   // return social security number
-   public String getSocialSecurityNumber() {
-      return commissionEmployee.getSocialSecurityNumber();
-   } 
-
-   // set commission employee's gross sales amount
-   public void setGrossSales(double grossSales) {
-      commissionEmployee.setGrossSales(grossSales);
-   } 
-
-   // return commission employee's gross sales amount
-   public double getGrossSales() {
-      return commissionEmployee.getGrossSales();
-   } 
-
-   // set commission employee's rate
-   public void setCommissionRate(double commissionRate) {
-      commissionEmployee.setCommissionRate(commissionRate);
-   } 
-
-   // return commission employee's rate
-   public double getCommissionRate() {
-      return commissionEmployee.getCommissionRate();
-   } 
 
    // set base salary
    public void setBaseSalary(double baseSalary) {
@@ -69,15 +42,32 @@ public class BasePlusCommissionEmployee {
       return baseSalary;
    }
 
+   @Override
    // calculate base-salaried commission employee's earnings
    public double earnings() {
-      return getBaseSalary() + commissionEmployee.earnings();
+      //not allowed: commisonRate and grossSales private in superclass
+      return baseSalary + (commissionRate * grossSales);
    } 
 
-   // return String representation of BasePlusCommissionEmployee
-   @Override
-   public String toString() {
-      return String.format("%s %s\n%s: %.2f", "base-salaried", 
-         commissionEmployee.toString(), "base salary", getBaseSalary());
-   } 
+      // return String representation of BasePlusCommissionEmployee
+      @Override
+      public String toString() {
+         //not allowed d/t private in superclass
+         // return String.format("%s: %s %s%n%s: %s%n%s: %.2f%n%s: %.2f%n", "base-salaried commission employee", 
+         // "employee name", firstName, lastName, 
+         // "social security number", socialSecurityNumber, 
+         // "gross sales", grossSales, 
+         // "commission rate", commissionRate 
+         // "base salary", getBaseSalary()
+
+         return String.format("%s: %n%s: %s %s%n%s: %s%n%s: %.2f%n%s: %.2f%n", 
+         "base-salaried commission employee",          
+         "name", firstName, lastName, 
+         "social security number", socialSecurityNumber, 
+         "gross sales", grossSales, 
+         "commission rate", commissionRate,
+         "base salary", getBaseSalary()
+         );
+         
+      } 
 }
