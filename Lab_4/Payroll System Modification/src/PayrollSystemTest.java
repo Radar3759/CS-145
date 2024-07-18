@@ -71,6 +71,7 @@ public class PayrollSystemTest {
          }
 
          // if month of employee's birthday, add $100 to salary
+         //works if I switched currentMonth and currentEmployee
          if (currentEmployee.getBirthDate().getMonth() == currentMonth) {
             System.out.printf(
                "earned $%,.2f %s\n\n", currentEmployee.earnings(), 
