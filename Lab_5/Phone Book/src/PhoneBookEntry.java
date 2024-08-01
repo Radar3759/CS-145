@@ -6,10 +6,11 @@ public class PhoneBookEntry {
     private String city;
     private String phoneNum;
     
-    
 
 //add getters and setters
 //add first and last name if the rest comes together
+//should this be a constructor? 
+
 public String getName() {
     return name;
 }
@@ -41,9 +42,6 @@ public String getPhoneNum() {
 public void setPhoneNum(String phoneNum) {
     this.name = phoneNum;
 }
-
-//should this be a constructor? 
-
 //add override and String toString
 @Override
 public String toString() {
