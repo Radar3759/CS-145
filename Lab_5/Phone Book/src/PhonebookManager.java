@@ -1,5 +1,7 @@
-public class TestClass {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+import java.util.*;
+
+public class PhonebookManager {
+    public static void main(string[] args) {
+        LinkedList<person> phoneBook;
     }
 }
