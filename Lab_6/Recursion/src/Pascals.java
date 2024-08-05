@@ -4,7 +4,7 @@ Class: CS145
 Assignment: Lab 6, Pascal's Triangle
 Date: 8/2/2024
 Extra Credit: I made the program check to see if the number entered is between 1-25
-Notes: I used deftstack.com, geeksforgeeks.org, and baeldung.com for pascal formulas in 
+Notes: I used deftstack.com, geeksforgeeks.org, and baeldung.com for pascal formulas. 
 'numY' is a bad var name. I needed it to be not a single char so I could 'see' it
 */
 
@@ -30,19 +30,21 @@ class Pascals {
                             System.out.print(" ");
                         }
                         for (int j = 0; j <= i; j++) {
-                            System.out.print(nCr(i,j)+ " "); //calls the nCr(i,j) method to calc the bionomial coeffiecients and print them
+                            System.out.printf(nCr(i,j)+ " "); //calls the nCr(i,j) method to calc the bionomial coeffiecients and print them
                         }
-                        System.out.println();//can this just be an n% at the end of 26? Try it
+                        System.out.println();
                         win = true; //close the while loop
                         input.close(); //closes the Scanner input
                     }
                 }
             } //ends while
     } //ends main
-    //makes the formula for binomial coeffiecients (what pascal's triangle is formed of) work
+    /*makes the formula for binomial coeffiecients (what pascal's triangle is formed of) work. I took this directly from deftstack.com*/
     private static int nCr(int n, int r) {
+        //establishes a count of one for numerator and denomoniator
         int numerator = 1;
         int denominator = 1;
+        //n is numY from above
         if (n < r || n == 0)
             return 1;
 
