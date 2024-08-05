@@ -44,7 +44,6 @@ class Pascals {
         //establishes a count of one for numerator and denomoniator
         int numerator = 1;
         int denominator = 1;
-        //n is numY from above
         if (n < r || n == 0)
             return 1;
 
